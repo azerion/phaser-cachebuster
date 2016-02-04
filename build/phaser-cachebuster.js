@@ -3,7 +3,7 @@
  * Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'
  *
  * OrangeGames
- * Build at 02-02-2016
+ * Build at 04-02-2016
  * Released under MIT License 
  */
 
@@ -14,11 +14,14 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Fabrique;
 (function (Fabrique) {
-    /**
-     * Plugins used by OG-Fabrique
-     */
     var Plugins;
     (function (Plugins) {
+        /**
+         * This here's the cacheBuser plugin. It patches the Phaser.Loader with a new transformUrl method.
+         * This method takes the cacheBuster parameter into account when fabricating a new url.
+         *
+         * Due to how this methid is used in the Phaser.Loader, all assets well get appended with a query parameter.
+         */
         var CacheBuster = (function (_super) {
             __extends(CacheBuster, _super);
             function CacheBuster(game, parent) {

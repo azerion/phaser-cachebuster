@@ -25,7 +25,9 @@ Next up you'd want to add it to your list of js sources you load into your game
 
 Usage
 -----
-You still need to load the plugin in your game. This is done just like any other plugin in Phaser
+
+### Load the plugin
+You still need to load the plugin in your game. This is done just like any other plugin in Phaser.
 ```javascript
 game.plugins.add(Fabrique.Plugins.CacheBuster);
 ```
@@ -35,14 +37,13 @@ The plugin will patch your Phaser Loader with the changed methods.
 The loader has been patched with a cacheBuster property, which is a generic string that can be set by you! When set, the Phaser Loader will append all url's with the string you specified as a query parameter
 
 ```javascript
-
 game.load.cacheBuster = Date.now().toString();
 ```
 
 
 Changelog
 ---------
-### 1.0.0
+### 1.0.1
 * Initial release
 
 Disclaimer
