@@ -27,12 +27,15 @@ module Fabrique {
                 });
 
                 (<Fabrique.Plugins.CacheBustedLoader>Phaser.Loader.prototype).transformUrl = function (url: string, file?: any): string {
+                    //No url? return!
                     if (!url)
                     {
                         return '';
                     }
 
-                    if ((<Fabrique.Plugins.CacheBustedLoader>this).cacheBuster !== null) {
+                    //Cachebusted string is added?
+                    //But only if it is set, and we aren't loading the asset trough a data URI
+                    if ((<Fabrique.Plugins.CacheBustedLoader>this).cacheBuster !== null && null === url.match(/^(data:)/)) {
                         url += '?v=' + (<Fabrique.Plugins.CacheBustedLoader>this).cacheBuster;
                     }
 

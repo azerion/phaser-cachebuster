@@ -44,6 +44,9 @@ game.load.cacheBuster = Date.now().toString();
 Changelog
 ---------
 ### 1.0.1
+* Removed addition of querystring for data URI's
+
+### 1.0.0
 * Initial release
 
 Disclaimer

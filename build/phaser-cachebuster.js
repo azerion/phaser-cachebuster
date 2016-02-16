@@ -1,9 +1,9 @@
 /*!
- * phaser-cachebuster - version 1.0.0 
+ * phaser-cachebuster - version 1.0.1 
  * Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'
  *
  * OrangeGames
- * Build at 04-02-2016
+ * Build at 16-02-2016
  * Released under MIT License 
  */
 
@@ -33,10 +33,13 @@ var Fabrique;
                     value: null
                 });
                 Phaser.Loader.prototype.transformUrl = function (url, file) {
+                    //No url? return!
                     if (!url) {
                         return '';
                     }
-                    if (this.cacheBuster !== null) {
+                    //Cachebusted string is added?
+                    //But only if it is set, and we aren't loading the asset trough a data URI
+                    if (this.cacheBuster !== null && null === url.match(/^(data:)/)) {
                         url += '?v=' + this.cacheBuster;
                     }
                     if (url.match(/^(?:blob:|data:|http:\/\/|https:\/\/|\/\/)/)) {

@@ -1,7 +1,7 @@
 {
   "name": "phaser-cachebuster",
   "author": "OrangeGames",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'",
   "contributors": [
     {
