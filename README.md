@@ -40,15 +40,29 @@ The loader has been patched with a cacheBuster property, which is a generic stri
 game.load.cacheBuster = Date.now().toString();
 ```
 
+Best practice
+-------------
+There are some best practices revolving cache busting and the usage of this plugin. It's nice that, when using this plugin, all your assets are beeing cache busted. But you also need to worry about your scripts beeing cached.
 
-Changelog
----------
-### 1.0.1
-* Removed addition of querystring for data URI's
+In that regard we advise you to also dynamicly load your scripts with a query parameter behind them. At Orange Games we use a setup that is similar to what you see in the example.
 
-### 1.0.0
-* Initial release
+It boils down to have a seperate javascript file, that contains nothing else but a  variable version, that can be used for cache busting queryparameters.
+
+In our code we load this file first, with a queryparamter equal to the current timestamp, in 99% of the cases this means a fresh version will be received.
+
+Then we append this version to the game source files we load, and in the game we use this version again for cache busting the assets.
+
+[Anyway, head on over to the example and check it out](https://github.com/orange-games/phaser-cachebuster/blob/master/example/index.html).
+
+
+Credits
+-------
+Credits to whoever invented cache busting, or query parameters, or cache headers.
+
 
 Disclaimer
 ----------
 We at OrangeGames just love playing and creating awesome games. We aren't affiliated with Phaser.io. We just needed some awesome cache busting in our awesome HTML5 games. Feel free to use it for de-caching your own awesome games!
+
+Phaser Cachebuster is distributed under the MIT license. All 3rd party libraries and components are distributed under their
+respective license terms.
