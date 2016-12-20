@@ -1,7 +1,7 @@
 {
   "name": "@orange-games/phaser-cachebuster",
   "author": "OrangeGames",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'",
   "contributors": [
     {
@@ -19,16 +19,25 @@
       "url": "https://github.com/orange-games/phaser-cachebuster/raw/master/LICENSE"
     }
   ],
-  "devDependencies": {
-    "grunt": "0.4.x",
-    "grunt-banner": "^0.6.0",
-    "grunt-contrib-clean": "0.6.0",
-    "grunt-contrib-uglify": "0.7.0",
-    "grunt-typescript": "0.8.0",
-    "phaser": "2.4.4",
-    "typescript": "1.6.x"
+  "bugs": [
+    {
+      "url": "https://github.com/orange-games/phaser-cachebuster/issues"
+    }
+  ],
+  "config": {
+    "name": "phaser-cachebuster"
   },
-  "engines": {
-    "node": "5.x.x"
+  "devDependencies": {
+    "grunt": "1.0.x",
+    "grunt-banner": "^0.6.0",
+    "grunt-contrib-clean": "1.0.x",
+    "grunt-contrib-connect": "1.0.x",
+    "grunt-contrib-uglify": "2.0.x",
+    "grunt-contrib-watch": "1.0.x",
+    "grunt-ts": "^6.0.0-beta.3",
+    "grunt-tslint": "^4.0.0",
+    "phaser": "2.6.2",
+    "tslint": "^4.1.1",
+    "typescript": "2.1.x"
   }
 }

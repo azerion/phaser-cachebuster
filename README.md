@@ -29,7 +29,7 @@ Usage
 ### Load the plugin
 You still need to load the plugin in your game. This is done just like any other plugin in Phaser.
 ```javascript
-game.plugins.add(Fabrique.Plugins.CacheBuster);
+game.plugins.add(PhaserCacheBuster.CacheBuster);
 ```
 The plugin will patch your Phaser Loader with the changed methods.
 
