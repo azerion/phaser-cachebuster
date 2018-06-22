@@ -3,7 +3,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const config = require('../package.json');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const basePath = path.join(__dirname, '../');
 
 module.exports = {
@@ -16,9 +15,15 @@ module.exports = {
             images: path.join(basePath, 'example/images/'),
         },
     },
-    externals: [
-        'phaser'
-    ],
+    externals: {
+        phaser: {
+            umd: 'phaser',
+            commonjs2: 'phaser', //fu webpack
+            commonjs: 'phaser', //fu webpack
+            amd: 'phaser', //fu webpack
+            root: 'Phaser' // indicates global variable
+        }
+    },
     plugins: [
         new webpack.DefinePlugin({}),
     ],
@@ -27,10 +32,6 @@ module.exports = {
             {
                 test: /images(\/|\\)/,
                 loader: 'file-loader?name=images/[hash].[ext]',
-            },
-            {
-                test: [ /\.vert$/, /\.frag$/ ],
-                use: 'raw-loader'
             }
         ],
     },

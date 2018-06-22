@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
-        "module": "amd",
+        "module": "es6",
         "target": "es5",
+        "moduleResolution": "node",
         "sourceMap": true,
-        "noImplicitAny": true,
-        "removeComments": false,
         "declaration": true,
-        "preserveConstEnums": true
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitAny":true,
+        "isolatedModules": false
     },
     "files": [
         "vendor/phaser.d.ts",

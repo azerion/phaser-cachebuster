@@ -1,24 +1,30 @@
-import {Boot} from 'phaser';
+import {Loader, Plugins} from 'phaser';
 // import * as PluginManager from '';
 
-class CacheBustedLoaderPlugin extends Boot.LoaderPlugin {
-    private _cacheBuster: string = '';
+let cacheBuster = '';
 
+export default class CacheBustedLoaderPlugin extends Loader.LoaderPlugin {
     get cacheBuster() {
-        return this._cacheBuster || '';
+        return cacheBuster || '';
     }
 
     set cacheBuster(version: string) {
-        this._cacheBuster = version;
+        cacheBuster = version;
     }
 
     public addFile(file: any): void {
+        if (!Array.isArray(file)) {
+           file = [file];
+        }
+
         if (this.cacheBuster.toString().length > 0) {
-            file.url += '?v=' + this.cacheBuster;
+            (<Loader.File[]>file).forEach((f: Loader.File) => {
+                f.url += '?v=' + cacheBuster;
+            });
         }
 
         super.addFile(file);
     }
 }
 
-PluginManager.register('Loader', CacheBustedLoaderPlugin, 'load');
+Plugins.PluginCache.register('Loader', CacheBustedLoaderPlugin, 'load');
