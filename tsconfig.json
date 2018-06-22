@@ -7,5 +7,9 @@
         "removeComments": false,
         "declaration": true,
         "preserveConstEnums": true
-    }
+    },
+    "files": [
+        "vendor/phaser.d.ts",
+        "ts/index.ts"
+    ]
 }
