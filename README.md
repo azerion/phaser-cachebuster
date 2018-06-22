@@ -1,11 +1,11 @@
 Phaser Cachebuster
 ================
-Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'.
+Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'. Now also for v3.
 
 Cache busting?
 --------------
 
-A cache-buster is a unique piece of code that prevents a browser from reusing an ad it has already seen and cached, or saved, to a temporary memory file.
+A cache-buster is a unique piece of code that prevents a browser from reusing an asset it has already seen and cached, or saved, to a temporary memory file.
 
 The cache-buster doesn’t stop a browser from caching the file, it just prevents it from reusing it. In most cases, this is accomplished with nothing more than a random number inserted into the element tag on each load. The random number makes every call to the asset look unique to the browser and therefore prevents it from associating the tag with a cached file, forcing a new call to the server.
 
@@ -18,26 +18,28 @@ First you want to get a fresh copy of the plugin. You can get it from this repo 
 npm install @orange-games/phaser-cachebuster --save-dev
 ```
 
-Next up you'd want to add it to your list of js sources you load into your game
-```html
-<script src="node_modules/phaser-cachebuster/build/phaser-cachebuster.js"></script>
-```
 
 Usage
 -----
 
 ### Load the plugin
-You still need to load the plugin in your game. This is done just like any other plugin in Phaser.
+In order to load the plugin, you just make sure it's imported
 ```javascript
-game.plugins.add(PhaserCacheBuster.CacheBuster);
+import CacheBustedLoader from '@orange-games/phaser-cachebuster';
 ```
+Or include it in your html
+```html
+<script src="https://cdn.jsdelivr.net/npm/@orange-games/phaser-cachebuster/build/phaser-cachebuster.min.js"></script>
+```
+
 The plugin will patch your Phaser Loader with the changed methods.
 
 ### Setting the cachebuster
 The loader has been patched with a cacheBuster property, which is a generic string that can be set by you! When set, the Phaser Loader will append all url's with the string you specified as a query parameter
 
 ```javascript
-game.load.cacheBuster = Date.now().toString();
+//So in your scene, you just do something like:
+this.load.cacheBuster = Date.now().toString();
 ```
 
 Best practice
