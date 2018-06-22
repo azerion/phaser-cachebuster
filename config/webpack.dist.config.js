@@ -24,6 +24,7 @@ module.exports = function (env) {
             }
         ]
     );
+    let date = (new Date()).toISOString().split('T')[0];
     myDevConfig.plugins = myDevConfig.plugins.concat([
             new webpack.DefinePlugin({
                     'DEBUG': false,
@@ -34,6 +35,14 @@ module.exports = function (env) {
                     root: basePath
                 }
             ),
+            new webpack.BannerPlugin(
+                config.name + ' - version ' + config.version + '\n' +
+                config.description + '\n' +
+                '\n' +
+                config.author + '\n' +
+                'Build at ' + date + '\n' +
+                'Released under MIT License \n'
+            )
         ]
     );
     return myDevConfig;
