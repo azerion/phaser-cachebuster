@@ -15,7 +15,7 @@ Getting Started
 ---------------
 First you want to get a fresh copy of the plugin. You can get it from this repo or from npm, ain't that handy.
 ```
-npm install @orange-games/phaser-cachebuster --save-dev
+npm install @azerion/phaser-cachebuster --save-dev
 ```
 
 Next up you'd want to add it to your list of js sources you load into your game
@@ -44,7 +44,7 @@ Best practice
 -------------
 There are some best practices revolving cache busting and the usage of this plugin. It's nice that, when using this plugin, all your assets are beeing cache busted. But you also need to worry about your scripts beeing cached.
 
-In that regard we advise you to also dynamicly load your scripts with a query parameter behind them. At Orange Games we use a setup that is similar to what you see in the example.
+In that regard we advise you to also dynamicly load your scripts with a query parameter behind them. At Azerion we use a setup that is similar to what you see in the example.
 
 It boils down to have a seperate javascript file, that contains nothing else but a  variable version, that can be used for cache busting queryparameters.
 
@@ -52,7 +52,7 @@ In our code we load this file first, with a queryparamter equal to the current t
 
 Then we append this version to the game source files we load, and in the game we use this version again for cache busting the assets.
 
-[Anyway, head on over to the example and check it out](https://github.com/orange-games/phaser-cachebuster/blob/master/example/index.html).
+[Anyway, head on over to the example and check it out](https://github.com/azerion/phaser-cachebuster/blob/master/example/index.html).
 
 
 Credits
@@ -62,7 +62,7 @@ Credits to whoever invented cache busting, or query parameters, or cache headers
 
 Disclaimer
 ----------
-We at OrangeGames just love playing and creating awesome games. We aren't affiliated with Phaser.io. We just needed some awesome cache busting in our awesome HTML5 games. Feel free to use it for de-caching your own awesome games!
+We at Azerion just love playing and creating awesome games. We aren't affiliated with Phaser.io. We just needed some awesome cache busting in our awesome HTML5 games. Feel free to use it for de-caching your own awesome games!
 
 Phaser Cachebuster is distributed under the MIT license. All 3rd party libraries and components are distributed under their
 respective license terms.

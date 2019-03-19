@@ -2,8 +2,8 @@
  * phaser-cachebuster - version 2.0.0 
  * Simple Phaser plugin for adding a query parameter to assets URL's so that they can be 'cache busted'
  *
- * OrangeGames
- * Build at 20-12-2016
+ * Azerion
+ * Build at 19-03-2019
  * Released under MIT License 
  */
 
